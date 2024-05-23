@@ -87,6 +87,8 @@ const mealQuery = graphql`
         edges {
           node {
             name
+            code
+            mealId
             rowId
             quantity
             unit
@@ -115,7 +117,7 @@ export const Meal = () => {
     ? Object.entries(data) .filter(([key, value]) => value !== null) .map(([key, value]) => ( <React.Fragment> {key}: {value} <br /> </React.Fragment>))
     : "No data";
 
-  const allIngredients = meal?.ingredients?.edges.map((ingredient) => ingredient.node);
+  const allIngredients = meal?.ingredients?.edges.map((ingredient) => ingredient.node)?.sort((a,b) => a.code - b.code);
   const theme = useTheme();
   const tagStyle = {
     color: "white",

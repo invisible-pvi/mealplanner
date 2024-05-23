@@ -83,6 +83,8 @@ export type MealQuery$data = {
       readonly edges: ReadonlyArray<{
         readonly node: {
           readonly name: string;
+          readonly code: any;
+          readonly mealId: string;
           readonly rowId: any;
           readonly quantity: any;
           readonly unit: string;
